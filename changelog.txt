@@ -1,0 +1,89 @@
+#ChangeLog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+-
+
+## [1.3.0] - 2019-07-23
+### Added
+-Add Elastic IP to Automation Instance
+-Add Celfocus Public IP to Automation security group 
+    -Add full access to this instance from Vodafone PT - Celfocus Network
+-EKS Module
+    -Add eks-worker-nodes.tf to eks-cluster module 
+-Enable logging on EKS module
+-Add locals, CONFIGMAPAWSAUTH and KUBECONFIG to Output 
+-Add eks version variable 
+
+### Changed
+-Changed EKS Module
+    -new tf file added to this module (eks-worker-nodes.tf)
+    -changed the structure of this module
+-Changed automation instance
+    -Set AMI to Amazon Linux (modules/env_tool/resources.tf line 6)
+-Changed env_tool module
+    -eks-cluster module call with more variables (modules/env_tool/resources.tf)
+-Changed variable of eks cluster
+    -desired-capacity-tool to 2 (modules/env_tool/variables.tf line 91)
+    -min-size-tool to 2 (modules/env_tool/variables.tf line 79)
+
+### Removed
+-Removed/Commented previous code for eks-cluster with GDC image
+-Removed some lines that were commented
+
+### Fixed
+-Changed route tables on Tooling VPC
+    -Set route table tool_priv1_rt as default (\modules\env_tool\vpc.tf line 206-220)
+-Fix eks security group - group rule
+    - add worker security group id(/modules/eks-cluster/main.tf line 49-57)
+
+## [1.2.0] - 2019-06-24
+### Added
+-In VPC Module
+    -Added Route table for DMZ (modules\env_tool\vpc.tf line 182-193)
+    -Added Nat gateway for DMZ  (modules\env_tool\vpc.tf line 149-165)
+    -Added Elastic IP for DMZ  (modules\env_tool\vpc.tf line 151-157)
+    -Added Route Table association fpr DMZ  (modules\env_tool\vpc.tf line 201-204)
+    -Added tags in the services below
+    
+## [1.1.0] - 2019-06-18
+### Added
+-Created EKS Module
+    -Created EKS cluster
+    -Created EKS security group
+    -Created IAM role for EKS
+-Created Worker Module
+    -Created Worker Auto Scalling group for EKS
+    -Created IAM role for workers
+    -Created worker security group
+
+#### Changed
+- Added Tags for EKS EDO Tooling on ( Tooling VPC, SubNet-priv_tool1, SubNet-priv_tool2 and SubNet-priv_tool3 )
+
+#### Removed
+- Removed K8s version variable at IaC/VDF-DE-EDO/main.tf LINE9 
+
+## [1.0.0] - 2019-06-04
+### Added
+-Created Tooling VPC
+-Created subnets (SubNet-priv1, SubNet-public-NAT, SubNet-priv_WIN, SubNet-priv2, SubNet-priv_tool1, SubNet-priv_tool2, SubNet-priv_tool3, SubNet-priv_mon1, SubNet-priv_mon2, SubNet-priv_mon3)
+-Created Instance EC2 with GDC AMI
+-Created Internet Gateway
+-Created route table tool_priv1_rt and route table association
+-Created automation security group
+
+## [major.minor.patch] - year-month-day
+### Added
+-
+
+### Changed
+- 
+
+### Removed
+-
+
+### Fixed
+-
