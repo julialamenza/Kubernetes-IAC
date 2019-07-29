@@ -50,5 +50,8 @@ output "dmz_internet_gateway_id" {
 output "dmz_eip_id" {
   value = "${aws_eip.dmz_nat_eip.id}"
 }
+output "tool_igw_id" {
+  value = "${aws_internet_gateway.tool_igw.id}"
+}
 
 ##########################################################################################################

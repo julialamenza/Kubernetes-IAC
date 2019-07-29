@@ -96,6 +96,7 @@ variable "desired-capacity-tool" {
 
 variable "eks-tooling-name" {
   default     = "EDO-EKS-Tolling"
+  default     = "vfde-edo-eucentral1-eks-tooling"
   description = "Cluster name"
 }
 variable "aws_region" {
@@ -122,3 +123,39 @@ variable "k8s-version" {
   type        = "string"
   description = "Required K8s version"
 }
+
+#######################################################################################
+################################################# Tagging #############################
+variable "po_number" {
+  default = "PO1502326080"
+}
+variable "env_tooling" {
+  default = "PROD"
+}
+variable "lm_entity" {
+  default = "VFDE"
+}
+variable "bu" {
+  default = "LOCAL-MARKET"
+}
+variable "project_tooling" {
+  default = "EDO"
+}
+variable "managed" {
+  default = "enterprise.cloud_test@vodafone.com"
+}
+variable "security_zone-tooling" {
+  default = "S2"
+}
+variable "confidentiality-tooling" {
+  default = "C3"
+}
+variable "tag-version" {
+  default = "V2.0"
+}
+variable "bs" {
+  default = "DE-AWS-EDO-TEST"
+}
+
+######################################################### ALB
+

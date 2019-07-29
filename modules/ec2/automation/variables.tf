@@ -17,15 +17,32 @@ variable "private_ip" {
   default     = ""
 }
 
-variable "instance_name" {
+variable "tag_name" {
   type        = "string"
   description = "Machine name"
   default     = ""
 }
-
-variable "env" {
-  type        = "string"
-  description = "machine env"
+variable "tag_env" {
+}
+variable "tag_po" {
+}
+variable "tag_lm" {
+}
+variable "tag_bu" {
+}
+variable "tag_project" {
+}
+variable "tag_managed" {
+}
+variable "tag_sz" {
+}
+variable "tag_confidentiality" {
+}
+variable "tag_version" {
+}
+variable "tag_bs" {
+}
+variable "tag_name_eip" {
 }
 
 variable "public_ip" {

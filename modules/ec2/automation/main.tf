@@ -16,9 +16,18 @@ resource "aws_instance" "automation" {
     encrypted             = true
   }
   tags {
-    Name      = "${var.instance_name}"
-    Env       = "${var.env}"
-    Terraform = "true"
+    Name              = "${var.tag_name}"
+    Environment       = "${var.tag_env}"
+    PONumber          = "${var.tag_po}"
+    LMEntity          = "${var.tag_lm}"
+    BU                = "${var.tag_bu}"
+    Project           = "${var.tag_project}"
+    ManagedBy         = "${var.tag_managed}"
+    SecurityZone      = "${var.tag_sz}"
+    Confidentiality   = "${var.tag_confidentiality}"
+    TaggingVersion    = "${var.tag_version}"
+    BusinessService   = "${var.tag_bs}"
+    Terraform         = "true"   
   }
 
   #availability_zone = "${var.availability_zone}"                      ###To be deleted??
@@ -30,4 +39,19 @@ resource "aws_instance" "automation" {
 resource "aws_eip" "ip-test-env" {
   instance = "${aws_instance.automation.id}"
   vpc = true
+
+  tags {
+    Name              = "${var.tag_name_eip}"
+    Environment       = "${var.tag_env}"
+    PONumber          = "${var.tag_po}"
+    LMEntity          = "${var.tag_lm}"
+    BU                = "${var.tag_bu}"
+    Project           = "${var.tag_project}"
+    ManagedBy         = "${var.tag_managed}"
+    SecurityZone      = "${var.tag_sz}"
+    Confidentiality   = "${var.tag_confidentiality}"
+    TaggingVersion    = "${var.tag_version}"
+    BusinessService   = "${var.tag_bs}"
+    Terraform         = "true"   
+  }
 }

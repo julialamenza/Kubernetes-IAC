@@ -1,7 +1,7 @@
 # EKS Cluster Resources
 
 resource "aws_iam_role" "cluster" {
-  name = "${var.cluster-name}-edo-eks-cluster-role"
+  name = "${var.iam_role_cluster}"
 
   assume_role_policy = <<POLICY
 {
@@ -17,6 +17,19 @@ resource "aws_iam_role" "cluster" {
   ]
 }
 POLICY
+  tags {
+    Environment       = "${var.tag_env}"
+    PONumber          = "${var.tag_po}"
+    LMEntity          = "${var.tag_lm}"
+    BU                = "${var.tag_bu}"
+    Project           = "${var.tag_project}"
+    ManagedBy         = "${var.tag_managed}"
+    SecurityZone      = "${var.tag_sz}"
+    Confidentiality   = "${var.tag_confidentiality}"
+    TaggingVersion    = "${var.tag_version}"
+    BusinessService   = "${var.tag_bs}"
+    Terraform         = "true"   
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "cluster-AmazonEKSClusterPolicy" {
@@ -30,7 +43,7 @@ resource "aws_iam_role_policy_attachment" "cluster-AmazonEKSServicePolicy" {
 }
 
 resource "aws_security_group" "cluster" {
-  name        = "${var.cluster-name}-edo-eks-cluster-sg"
+  name        = "${var.sg_cluster}"
   description = "Cluster communication with worker nodes"
   vpc_id      = "${var.tool_vpc_id}"
   
@@ -42,7 +55,18 @@ resource "aws_security_group" "cluster" {
   }
 
   tags {
-    Name = "${var.cluster-name}-edo-eks-cluster-sg"
+    Name              = "${var.sg_cluster}"
+    Environment       = "${var.tag_env}"
+    PONumber          = "${var.tag_po}"
+    LMEntity          = "${var.tag_lm}"
+    BU                = "${var.tag_bu}"
+    Project           = "${var.tag_project}"
+    ManagedBy         = "${var.tag_managed}"
+    SecurityZone      = "${var.tag_sz}"
+    Confidentiality   = "${var.tag_confidentiality}"
+    TaggingVersion    = "${var.tag_version}"
+    BusinessService   = "${var.tag_bs}"
+    Terraform         = "true"
   }
 }
 

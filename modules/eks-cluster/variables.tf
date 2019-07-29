@@ -37,4 +37,29 @@ variable "cluster-name" {
   description = "The name of your EKS Cluster"
 }
 
+variable "iam_role_cluster" {
+}
+variable "sg_cluster" {
+}
+variable "tag_env" {
+}
+variable "tag_po" {
+}
+variable "tag_lm" {
+}
+variable "tag_bu" {
+}
+variable "tag_project" {
+}
+variable "tag_managed" {
+}
+variable "tag_sz" {
+}
+variable "tag_confidentiality" {
+}
+variable "tag_version" {
+}
+variable "tag_bs" {
+}
+
 
